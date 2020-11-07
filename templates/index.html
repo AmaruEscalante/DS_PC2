@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+{#<form action="/add_contact", method="post">#}
+{#    <input type="text" name="nombres" placeholder="Nombres">#}
+{#    <input type="text" name="telefono" placeholder="Telefono">#}
+{#    <input type="text" name="email" placeholder="Email">#}
+{#    <button type="submit">Guardar</button>#}
+{#</form>#}
+{% block body %}
+    <div class="row">
+        <div class="col-md-6">
+            {% with messages = get_flashed_messages()  %}
+            {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p> {{msg}}</p>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="card card-body">
+                <form action="/add_book", method="post">
+                    <h3>Agregar Libro</h3>
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                        <br>
+                        <input type="text" name="disponible" placeholder="Disponible" class="form-control">
+                        <br>
+                        <input type="text" name="isbn" placeholder="isbn"  class="form-control">
+                        <br>
+                        <input type="text" name="categoria" placeholder="Categoria"  class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Agregar libro</button>
+                </form>
+            </div>
+        </div>
+            <div class="col-md-6">
+            <table class="table table-striped table-bordered bg table-sm" >
+                <thead title="Insertar Libros">
+                    <tr>
+                        <h3>Libros</h3>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>Nombre</td>
+                        <td>Disponible</td>
+                        <td>isbn</td>
+                        <td>Categoria</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in libros %}
+                    <tr>
+                        <td> {{ c.0 }} </td>
+                        <td> {{ c.1 }} </td>
+                        <td> {{ c.2 }} </td>
+                        <td> {{ c.3 }} </td>
+                        <td> {{ c.4 }} </td>
+                        <td>
+                            <a href="/edit/{{c.0}}" class="btn btn-secondary">Edit</a>
+                            <a href="/delete/{{c.0}}" class="btn btn-danger btn-delete" >Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+
+            </div>
+        </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-6">
+            {% with messages = get_flashed_messages()  %}
+            {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p> {{msg}}</p>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="card card-body">
+                <form action="/add_autor", method="post">
+                    <h3>Agregar Autor</h3>
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                        <br>
+                        <input type="text" name="edicion" placeholder="Edicion" class="form-control">
+                        <br>
+                        <input type="text" name="fecha" placeholder="Fecha"  class="form-control">
+                        <br>
+                        <input type="text" name="pais" placeholder="Pais"  class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Agregar autor</button>
+                </form>
+            </div>
+        </div>
+            <div class="col-md-6">
+            <table class="table table-striped table-bordered bg table-sm" >
+                <thead title="Insertar Autor">
+                    <tr>
+                        <h3>Autores</h3>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>Nombre</td>
+                        <td>Edicion</td>
+                        <td>Fecha de Publicacion</td>
+                        <td>Pais</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in autor %}
+                    <tr>
+                        <td> {{ a.0 }} </td>
+                        <td> {{ a.1 }} </td>
+                        <td> {{ a.2 }} </td>
+                        <td> {{ a.3 }} </td>
+                        <td> {{ a.4 }} </td>
+                        <td>
+                            <a href="/edit_autor/{{a.0}}" class="btn btn-secondary">Edit</a>
+                            <a href="/delete_autor/{{a.0}}" class="btn btn-danger btn-delete" >Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+            </div>
+        </div>
+{% endblock %}

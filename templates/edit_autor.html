@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Editar Autor</h1>
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <form action = "/update_autor/{{ autor.0 }}", method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" value="{{ autor.1 }}">
+                    <small id="emailHelp" class="form-text text-muted">Nombre</small>
+                </div>
+                <div class="form-group">
+                    <label for="edicion">edicion</label>
+                    <input type="text" class="form-control" name="edicion" value="{{ autor.2 }}">
+                    <small id="emailHelp" class="form-text text-muted">Edicion</small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Fecha</label>
+                    <input type="text" class="form-control" name="fecha" value="{{ autor.3 }}">
+                    <small id="emailHelp" class="form-text text-muted">Fecha</small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Pais</label>
+                    <input type="text" class="form-control" name="pais" value="{{ autor.4 }}">
+                    <small id="emailHelp" class="form-text text-muted">Pais</small>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+
+                </div>
+            {#        <input type="text" name="Nombre" placeholder="Nombre" value="{{autor.1}}">#}
+            {#        <input type="text" name="edicion" placeholder="edicion" value="{{autor.2}}">#}
+            {#        <input type="text" name="email" placeholder="Email" value={{autor.3}}>#}
+            {#        <button type="submit">Save</button>#}
+            </form>
+        </div>
+    </div>
+{% endblock %}

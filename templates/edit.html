@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Editar Libro</h1>
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <form action = "/update/{{ libro.0 }}", method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" value="{{ libro.1 }}">
+                    <small id="emailHelp" class="form-text text-muted">Nombre</small>
+                </div>
+                <div class="form-group">
+                    <label for="disponible">Disponible</label>
+                    <input type="text" class="form-control" name="disponible" value="{{ libro.2 }}">
+                    <small id="emailHelp" class="form-text text-muted">Disponible</small>
+                </div>
+                <div class="form-group">
+                    <label for="isbn">isbn</label>
+                    <input type="text" class="form-control" name="isbn" value="{{ libro.3 }}">
+                    <small id="emailHelp" class="form-text text-muted">ISBN</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" class="form-control" name="categoria" value="{{ libro.4 }}">
+                    <small id="emailHelp" class="form-text text-muted">Categoria</small>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+
+                </div>
+            {#        <input type="text" name="nombres" placeholder="Nombres" value="{{libro.1}}">#}
+            {#        <input type="text" name="telefono" placeholder="Telefono" value="{{libro.2}}">#}
+            {#        <input type="text" name="email" placeholder="Email" value={{libro.3}}>#}
+            {#        <button type="submit">Save</button>#}
+            </form>
+        </div>
+    </div>
+{% endblock %}

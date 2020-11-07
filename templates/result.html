@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Resultado</h1>
+
+    {% if results|length > 1 %}
+{#    value of variable: {{ variable }}#}
+    <div class="col-md-6">
+            <table class="table table-striped table-bordered bg table-sm" >
+                <thead title="Libro encontrado">
+                    <tr>
+                        <h3>¡Libro Encontrado!</h3>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>Nombre</td>
+                        <td>Disponible</td>
+                        <td>isbn</td>
+                        <td>Categoria</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{ results.0 }} </td>
+                        <td> {{ results.1 }} </td>
+                        <td> {{ results.2 }} </td>
+                        <td> {{ results.3 }} </td>
+                        <td> {{ results.4 }} </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+
+            </div>
+
+    {% else %}
+    No se encontró el libro :c
+    {% endif %}
+{% endblock %}
